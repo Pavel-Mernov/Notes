@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.Views.NotesListPage">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <CollectionView x:Name="collectionView"
+                            Margin="30"
+                            SelectionMode="Single"
+                            SelectionChanged="collectionView_SelectionChanged">
+        
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="{Binding LayoutBackgroundColor}">
+                            <Label Text="{Binding Text}"
+                                   TextColor="{Binding TextColor}"
+                                   FontSize="30"
+                                   HorizontalOptions="CenterAndExpand"
+                                   HorizontalTextAlignment="Center"/>
+
+                            <Label Text="{Binding String}"
+                                   TextColor="{Binding TextColor}"
+                                   FontSize="20"
+                                   HorizontalOptions="CenterAndExpand"
+                                   HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand">
+                <Button x:Name="deleteButton"
+                    Text="Delete"
+                    TextColor="#fdfdfd"
+                    FontSize="24"
+                    BackgroundColor="#afafff"
+                    HorizontalOptions="StartAndExpand"
+                    Clicked="deleteButton_Clicked"/>
+
+                <Button x:Name="resetButton"
+                    Text="Reset"
+                    TextColor="#fdfdfd"
+                    FontSize="24"
+                    BackgroundColor="#afafff"
+                    Clicked="resetButton_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
